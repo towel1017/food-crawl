@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
+// next.config.js
 module.exports = {
-  reactStrictMode: true,
-}
+    async rewrites() {
+        return [
+          {
+            source: '/:path*',
+            destination: 'https://api.notion.com/:path*',
+          },
+        ]
+      },
+  };
