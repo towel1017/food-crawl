@@ -19,8 +19,12 @@ export const foodStoreState = atomFamily<any, any[]|string>({
                 //section-scrollbox
                 const foodStoreListBody = $("div.localeft-cont").children("div.lc-list").children("ul#div_list").children("li")
                 foodStoreListBody.each(function (index: number, content) {
+                    console.log("sss",$(this).find('a.blink span.ctxt').last().toString().replace(/(<span class="ctxt">|<\/span>)/gi, "").split(">")[2])
                     foodStoreList[index] = {
-                        storeName: $(this).find("a.blink span.btxt").text()
+                        storeName: $(this).find("a.blink span.btxt").text(),
+                        storeScore: $(this).find('p.favor-review span.point').text(),
+                        storeType: $(this).find('a.blink span.stxt').first().text(),
+                        storeAddress: $(this).find('a.blink span.ctxt').last().toString().replace(/(<span class="ctxt">|<\/span>)/gi, "").split(">")[2]
                     }
                 })
                 foodStoreList = foodStoreList.filter(v => v.storeName !== "")

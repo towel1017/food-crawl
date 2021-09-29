@@ -19,7 +19,7 @@ const FoodStoreItem: FC<FoodStoreItemProps> = ({ storeName, storeScore, storeTyp
       </S.StoreItemInfoWrapper>
       <S.StoreItemInfoWrapper2>
         <button>Notion에 적용</button>
-        <span>{storeScore}점</span>
+        <span>{storeScore}</span>
       </S.StoreItemInfoWrapper2>
     </S.FoodStoreItemWrapper>
   );
