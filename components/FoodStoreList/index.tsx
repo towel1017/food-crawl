@@ -1,3 +1,4 @@
+import { makeConsoleLogger } from "@notionhq/client/build/src/logging";
 import React, { FC } from "react";
 import FoodStoreItem from "./FoodStoreItem";
 import * as S from "./styled";
@@ -15,7 +16,12 @@ interface FoodStoreListProps {
 }
 
 const FoodStoreList: FC<FoodStoreListProps> = ({ foodStoreList }) => {
-  return <S.FoodStoreListWrapper>{typeof foodStoreList === "string" ? foodStoreList : foodStoreList.map((store, i) => <FoodStoreItem key={i} {...store} />)}</S.FoodStoreListWrapper>;
+  console.log(foodStoreList);
+  return (
+    <S.FoodStoreListWrapper>
+      {typeof foodStoreList === "string" ? foodStoreList : foodStoreList.map((store, i) => <FoodStoreItem key={i} handleAddNotion={() => {}} storeName={store.storeName} storeAddress={store.storeAddress} storeScore={store.storeScore} storeType={store.storeType} />)}
+    </S.FoodStoreListWrapper>
+  );
 };
 
 export default FoodStoreList;

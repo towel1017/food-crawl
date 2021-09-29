@@ -57,6 +57,7 @@ const Home: React.FC = () => {
       case "loading":
         return "대기중...";
       case "hasValue":
+        console.log(foodStoreList);
         return foodStoreList.contents;
     }
   };

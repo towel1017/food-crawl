@@ -18,16 +18,12 @@ export const foodStoreState = atomFamily<any, any[]|string>({
                 const $ = cheerio.load(res?.data)
                 //section-scrollbox
                 const foodStoreListBody = $("div.localeft-cont").children("div.lc-list").children("ul#div_list").children("li")
-                console.log("[search info]", foodStoreListBody)
-                console.log("[store name]", $(this).find("a.blink"))
                 foodStoreListBody.each(function (index: number, content) {
                     foodStoreList[index] = {
-                        name: $(this).find("a.blink span.btxt").text()
+                        storeName: $(this).find("a.blink span.btxt").text()
                     }
                 })
-                foodStoreList = foodStoreList
-                    .filter(n => n.name)
-                    .map(v => v.name.slice(3).trim());
+                foodStoreList = foodStoreList.filter(v => v.storeName !== "")
                 
                 return foodStoreList;
             })
