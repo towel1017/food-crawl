@@ -1,9 +1,12 @@
 import { AppProps } from "next/app";
+import { RecoilRoot } from "recoil";
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 }
