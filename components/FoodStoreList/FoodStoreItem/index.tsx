@@ -18,7 +18,7 @@ const FoodStoreItem: FC<FoodStoreItemProps> = ({ storeName, storeScore, storeTyp
         <S.StoreAddressText>{storeAddress}</S.StoreAddressText>
       </S.StoreItemInfoWrapper>
       <S.StoreItemInfoWrapper2>
-        <button>Notion에 적용</button>
+        <button onClick={handleAddNotion}>Notion에 적용</button>
         <span>{storeScore}</span>
       </S.StoreItemInfoWrapper2>
     </S.FoodStoreItemWrapper>

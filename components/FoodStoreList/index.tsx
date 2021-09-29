@@ -19,7 +19,20 @@ const FoodStoreList: FC<FoodStoreListProps> = ({ foodStoreList }) => {
   console.log(foodStoreList);
   return (
     <S.FoodStoreListWrapper>
-      {typeof foodStoreList === "string" ? foodStoreList : foodStoreList.map((store, i) => <FoodStoreItem key={i} handleAddNotion={() => {}} storeName={store.storeName} storeAddress={store.storeAddress} storeScore={store.storeScore} storeType={store.storeType} />)}
+      {typeof foodStoreList === "string"
+        ? foodStoreList
+        : foodStoreList.map((store, i) => (
+            <FoodStoreItem
+              key={i}
+              handleAddNotion={() => {
+                console.log("[Notion API logic]");
+              }}
+              storeName={store.storeName}
+              storeAddress={store.storeAddress}
+              storeScore={store.storeScore}
+              storeType={store.storeType}
+            />
+          ))}
     </S.FoodStoreListWrapper>
   );
 };
