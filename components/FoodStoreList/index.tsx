@@ -1,14 +1,14 @@
-import { makeConsoleLogger } from "@notionhq/client/build/src/logging";
 import React, { FC } from "react";
+import { addItemInNotion } from "../../lib/addItemInNotion";
 import FoodStoreItem from "./FoodStoreItem";
 import * as S from "./styled";
 
 interface FoodStoreItemProps {
   storeName: string;
-  storeScore: number;
+  storeScore: string;
   storeAddress: string;
   storeType: string;
-  handleAddNotion: () => void;
+  handleAddNotion: (storeInfo: any) => void;
 }
 
 interface FoodStoreListProps {
@@ -24,8 +24,9 @@ const FoodStoreList: FC<FoodStoreListProps> = ({ foodStoreList }) => {
         : foodStoreList.map((store, i) => (
             <FoodStoreItem
               key={i}
-              handleAddNotion={() => {
-                console.log("[Notion API logic]");
+              handleAddNotion={async () => {
+                await addItemInNotion(store);
+                alert("등록이 완료되었습니다!");
               }}
               storeName={store.storeName}
               storeAddress={store.storeAddress}

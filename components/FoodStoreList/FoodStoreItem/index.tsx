@@ -3,7 +3,7 @@ import * as S from "./styled";
 
 interface FoodStoreItemProps {
   storeName: string;
-  storeScore: number;
+  storeScore: string;
   storeAddress: string;
   storeType: string;
   handleAddNotion: () => void;

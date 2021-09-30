@@ -1,51 +1,8 @@
 import React from "react";
-import { Client } from "@notionhq/client";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { foodStoreState, keywordState } from "../recoil/atom";
 import { FoodStoreListContainer, SearchFormContainer } from "../container";
 import styled from "styled-components";
-
-const notion = new Client({ auth: "secret_XW6AuSx9ql1KK6kW4JhniDGtZkn2R5gv2sm9GuEHv66" });
-
-const databaseId = "255cfc3432674551bd05b742d4ec6b6b";
-const blockid = "255cfc3432674551bd05b742d4ec6b6b";
-
-const addItem = async () => {
-  const response = await notion.pages.create({
-    parent: {
-      database_id: databaseId,
-    },
-    properties: {
-      Name: {
-        title: [
-          {
-            text: {
-              content: "Tuscan Kale",
-            },
-          },
-        ],
-      },
-      star: {
-        number: 5,
-      },
-      address: {
-        rich_text: [
-          {
-            text: {
-              content: "서울특별시 관악구 관악로10길 73",
-            },
-          },
-        ],
-      },
-      type: {
-        select: {
-          name: "한식",
-        },
-      },
-    },
-  });
-  console.log(response);
-};
 
 const Home: React.FC = () => {
   const [keyword, setKeyword] = useRecoilState(keywordState);
