@@ -30,7 +30,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <title>온잇코리아 첫 번째 과제</title>
+          <meta property="og:title" content="회사 주변 맛집 찾기"></meta>
+          <meta property="og:description" content="회사 주변 반경 500m 맛집 크롤링 후 Notion에 적용까지!"></meta>
+          <meta property="og:image" content="https://post-phinf.pstatic.net/MjAyMDEwMzBfMjU1/MDAxNjA0MDMyMjkxODU3.mkQ1XS3WDGYl4Hil2GrXCENETyYUwDg3UTfKHvpDQy8g.fsLh_3fZ7SieqRbkCjXtrRv8pKWd0oHndCcEvY9S6wMg.PNG/4.png?type=w1200"></meta>
+        </Head>
         <body>
           <Main />
           <NextScript />
